@@ -1,6 +1,6 @@
 https://overthewire.org/wargames/bandit/
 
-ssh bandit2@bandit.labs.overthewire.org -p 2220
+ssh bandit12@bandit.labs.overthewire.org -p 2220
 Each password refers to the password for the next level (flag found in that level)
 bandit0
 
@@ -48,3 +48,36 @@ level 11:
 5Te8Y4drgCRfCx8ugdwuEX8KFC6k2EUu
 
 level 12:
+8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
+fuck this level had to decompress shit 10 times
+
+level 13:
+ssh bandit14@localhost -i sshkey.private
+4wcYUJFw0k0XLShlDzztnTBHiqxU3b3e
+
+level 14:
+BfMYroe26WYalil77FoDi9qh59eK5xNr
+
+level 15:
+cluFn7wTiGryunymYOu4RcffSxQluehd
+
+-used openssl s_client -connect localhost:8080
+idk what i did exactly but it worked
+
+level 16:
+NOTE: nmap only scans the most popular ports
+	https://serverfault.com/questions/391735/nmap-not-scanning-all-ports
+	you can scan all ports (except port 0) with -p-
+xLYVMN9WE5zQ5vHacb0sZEVqbrp7nBTn
+
+level 17:
+kfBf3eYk5BPBRzwjqutbbfE887SVc5Yd
+
+level 18:
+IueksS7Ubh8G3DCwVzrTd8rAVOwq3M5x
+Note: if you put a command after ssh, that command would be executed
+ex: ssh bandit18@bandit.labs.overthewire.org -p 2220 /bin/sh
+	this would execute /bin/sh directly (which is an alternative shell to bash)
+
+level 19:
+GbKksEFF4yrVs6il55v6gwY5aVje5f0j
