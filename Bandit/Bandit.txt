@@ -49,7 +49,7 @@ level 11:
 
 level 12:
 8ZjyCRiBWFYkneahHwxCv3wb2a1ORpYL
-fuck this level had to decompress shit 10 times
+bad level had to decompress stuff 10 times
 
 level 13:
 ssh bandit14@localhost -i sshkey.private
