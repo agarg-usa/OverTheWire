@@ -1,6 +1,6 @@
 https://overthewire.org/wargames/bandit/
 
-ssh bandit24@bandit.labs.overthewire.org -p 2220
+ssh bandit29@bandit.labs.overthewire.org -p 2220
 Each password refers to the password for the next level (flag found in that level)
 bandit0
 
@@ -209,3 +209,35 @@ technically /bin/echo is also a shell, which does nothing but echo
 
 level 27:
 0ef186ac70e04ea33b4c1853d2526fa2
+
+level 28:
+https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
+bbc96594b4e001778eee9975372716b2
+
+level 29:
+5b90576bedb2cc04c86a9e924ce42faf
+to view all branches, do git diff -a
+to change current branch do git checkout <branch>
+when changing branches, it will change the actual file structure too
+
+level 30:
+git tag shows all the tags
+	tags are kind of like "pointers" to a specific point in a branch, so instead of having a whole
+	hash for the branch you can have a nice simple name (ex. v1.0)
+there are 2 types of tags, lightweight and annotated. Annotated tags have more info with them
+while lightweight tags are just pointers
+Annotated tags are treated like actual objects with checksums and everything
+
+Other thing is git show, which shows a specific file and its changes (ex. when it was commited)
+47e603bb428404d265f59c42920d81e5
+
+level 31:
+56a9bf19c63d650ce78e6ec0354ee45e
+
+git add to track a file
+git commit -m <message>
+git push
+
+level 32:
+c9c3199ddf4121b10cf581a98d51caee
+??? no idea how one would solve this
