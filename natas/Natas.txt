@@ -100,5 +100,22 @@ WaIHEacj63wnNIBROHeqi3p9t0m5nhmh
 able to use SQL injection to lower down the possiblities when bruteforcing a password
 
 Natas 17:
+8Ps3H0GWbn5rd9S7GmAdgQNdkhPkq9cw
 can do RCE using $()
+WATCH OUT for spaces, which can mess up the grep (especially since the input is surrounded by " ")
+/etc/natas_webpass/natas17
 
+$(cut -c 2 /etc/natas_webpass/natas17), then scan through input and find matching characters.
+Might come up with multiple passwords, and would have to bruteforce all the possible passwords
+
+another method is to do
+"April$(grep \.{n}*character*.*\)"
+where n is the number character you are at. If the character is there, the input will be Aprilasdf which will give no results.
+Otherwise if the character does not exist in that n'th spot, the input will just be April which will give results.
+second idea is better but I did not think of it
+
+Natas 18:
+
+We can use # as a comment
+
+natas18" UNION SELECT * FROM users WHERE password LIKE "a%" AND SLEEP(1)  #
