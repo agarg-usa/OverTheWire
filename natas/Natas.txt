@@ -115,7 +115,9 @@ Otherwise if the character does not exist in that n'th spot, the input will just
 second idea is better but I did not think of it
 
 Natas 18:
-
+xvKIqDjy4OPv7wCRgDlmj0pFsCsDjhdP
 We can use # as a comment
-
 natas18" UNION SELECT * FROM users WHERE password LIKE "a%" AND SLEEP(1)  #
+natas18" UNION SELECT * FROM users WHERE username="natas18" AND SLEEP(1)  #
+
+Natas 19: 
